@@ -4,8 +4,6 @@ namespace App\Controller;
 
 use App\Contract\Service\JokeServiceInterface;
 use App\Form\RandomJokeType;
-use App\Model\Joke;
-use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,6 +12,11 @@ class RandomJokeController extends AbstractController
 {
     /**
      * @Route("/", name="random_joke", methods={"GET", "POST"})
+     *
+     * @param Request $request
+     * @param JokeServiceInterface $jokeService
+     * @param \Swift_Mailer $mailer
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(Request $request, JokeServiceInterface $jokeService, \Swift_Mailer $mailer)
     {

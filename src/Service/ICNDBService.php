@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Contract\Service\JokeServiceInterface;
 use App\Model\Joke;
 use GuzzleHttp\Client;
