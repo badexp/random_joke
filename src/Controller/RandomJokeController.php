@@ -19,8 +19,9 @@ class RandomJokeController extends AbstractController
     {
         $jokeCategories = $jokeService->getCategories();
 
-        $randomJokeForm = $this->createForm(RandomJokeType::class, [
-            'categories' => $jokeCategories
+        // here we use array_combine because we should give choices form with assoc array
+        $randomJokeForm = $this->createForm(RandomJokeType::class, null, [
+            'categories' => array_combine($jokeCategories, $jokeCategories)
         ]);
         $randomJokeForm->handleRequest($request);
 

@@ -37,11 +37,8 @@ class RandomJokeType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'categories' => [
-                'explicit' => 'explicit',
-                'nerdy' => 'nerdy',
-            ]
+        $resolver->setRequired([
+            'categories'
         ]);
     }
 }
