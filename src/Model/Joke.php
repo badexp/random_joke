@@ -8,9 +8,22 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class Joke
 {
+    /**
+     * @var string $text
+     */
     protected $text = '';
 
     public function __construct($text)
+    {
+        $this->text = $text;
+    }
+
+    public function getText() : string
+    {
+        return $this->text;
+    }
+
+    public function setText($text) : void
     {
         $this->text = $text;
     }
