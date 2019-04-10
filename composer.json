@@ -52,6 +52,17 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "build": [
+            "composer install",
+            "docker-compose build"
+        ],
+        "run": [
+            "docker-compose up -d"
+        ],
+        "test": [
+            "docker-compose up -d",
+            "docker-compose exec php-fpm vendor/bin/codecept run"
         ]
     },
     "conflict": {
