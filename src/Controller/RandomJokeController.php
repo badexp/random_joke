@@ -27,11 +27,12 @@ class RandomJokeController extends AbstractController
 
         if($randomJokeForm->isSubmitted() && $randomJokeForm->isValid())
         {
+            $emailSender = $this->getParameter('email_sender');
             $emailRecipient = $randomJokeForm->get('email')->getData();
             $emailSubject = 'Случайная шутка из '.$randomJokeForm->get('category')->getData();
 
             $jokeService->getRandom()
-                ->sendByEmail($mailer, $emailRecipient, $emailSubject)
+                ->sendByEmail($mailer, $emailSender, $emailRecipient, $emailSubject)
                 ->saveAsFile('/application/var/jokes.txt');
         }
 

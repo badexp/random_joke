@@ -15,10 +15,10 @@ class Joke
         $this->text = $text;
     }
 
-    public function sendByEmail(\Swift_Mailer $mailer, string $email, string $subject) : self
+    public function sendByEmail(\Swift_Mailer $mailer, string $from, string $email, string $subject) : self
     {
         $message = (new \Swift_Message())
-            ->setFrom('jokejoke66@yahoo.com')
+            ->setFrom($from)
             ->setTo($email)
             ->setSubject($subject)
             ->setBody($this->text);
